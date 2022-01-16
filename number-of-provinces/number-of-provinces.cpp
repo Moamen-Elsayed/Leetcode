@@ -9,25 +9,26 @@ public:
     }
     
     int find(int x){
-        if(root[x] == x)
-            return x;
-        return root[x] = find(root[x]);
+        return root[x];
+        // if(root[x] == x)
+        //     return x;
+        // return root[x] = find(root[x]);
     }
     
     void unionSet(int x, int y){
         int rootX = find(x);
         int rootY = find(y);
         
-        if(rootX != rootY)
-            root[rootY] = rootX;
+        // if(rootX != rootY)
+        //     root[rootY] = rootX;
         
         
-        // if(rootX != rootY){
-        //     for(int i=0 ; i<root.size() ; i++){
-        //         if(root[i] == rootY)
-        //             root[i] = rootX;
-        //     }  
-        // }    
+        if(rootX != rootY){
+            for(int i=0 ; i<root.size() ; i++){
+                if(root[i] == rootY)
+                    root[i] = rootX;
+            }  
+        }    
     }
     
     
