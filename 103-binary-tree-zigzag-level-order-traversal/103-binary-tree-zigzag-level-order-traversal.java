@@ -28,29 +28,22 @@ class Solution {
             lvlnm++;
             int lvlsize = q.size();
             List<Integer> lvl = new ArrayList<>();
-            if(lvlnm%2 == 0){
-                for(int i=0 ; i<lvlsize ; i++){
-                    TreeNode tmp = q.poll();
+            for(int i=0 ; i<lvlsize ; i++){
+                TreeNode tmp = q.poll();
+                if(lvlnm%2 == 0)
                     lvl.add(tmp.val);
-                    
-                    if(tmp.left != null)
-                        q.add(tmp.left);
-                    if(tmp.right != null)
-                        q.add(tmp.right);
-                }
-            }else{
-                for(int i=0 ; i<lvlsize ; i++){
-                    TreeNode tmp = q.poll();
+                else
                     lvl.add(0,tmp.val);
                     
-                    if(tmp.left != null)
-                        q.add(tmp.left);
-                    if(tmp.right != null)
-                        q.add(tmp.right);
-                }    
+                if(tmp.left != null)
+                    q.add(tmp.left);
+                if(tmp.right != null)
+                    q.add(tmp.right);
             }
             lvls.add(lvl);
         }
+       
+    
         
         return lvls;
     }
