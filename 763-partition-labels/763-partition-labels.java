@@ -9,6 +9,8 @@ class Solution {
             end[pos] = i;
         }
         
+        for(int c : end) System.out.print(c + " ");
+        
         int j=0 , anc=0;
         List<Integer> ans = new ArrayList();
         for(int i=0 ; i<s.length() ; i++){
